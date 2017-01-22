@@ -50,4 +50,3 @@ DirectoryIndex index.php
 
     #php_value opcache.file_cache   "/var/lib/php/opcache"
 </IfModule>
-Loadmodule php7_module /usr/lib64/httpd/modules/libphp7.so

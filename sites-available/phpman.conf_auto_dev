@@ -1,0 +1,18 @@
+<VirtualHost *:80>
+    ServerName $document_root_basename
+    ServerAlias $server_alias
+    DocumentRoot $document_root
+    ErrorLog $logs_dir/${document_root_basename}-error.log
+    ErrorLog $logs_dir/${document_root_basename}-requests.log combined
+    <Directory $document_root>
+        Options Indexes FollowSymLinks
+	AllowOverride All
+	Require all granted
+    </Directory>
+    alias /logs $logs_dir
+    <Directory $logs_dir>
+        Options Indexes FollowSymLinks
+	AllowOverride All
+	Require all granted
+    </Directory>
+</VirtualHost>

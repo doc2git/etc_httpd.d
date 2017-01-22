@@ -66,10 +66,8 @@ Include conf.modules.d/*.conf
 # It is usually good practice to create a dedicated user and group for
 # running httpd, as with most system services.
 #
-# User catkeenalert
-# Group catkeenalert
-User git
-Group git
+User catkeenalert
+Group catkeenalert
 
 # 'Main' server configuration
 #
@@ -308,7 +306,6 @@ LogLevel warn
     # (You will also need to add "ExecCGI" to the "Options" directive.)
     #
     #AddHandler cgi-script .cgi
-    AddHandler cgi-script .cgi .pl .sh
 
     # For type maps (negotiated resources):
     #AddHandler type-map var

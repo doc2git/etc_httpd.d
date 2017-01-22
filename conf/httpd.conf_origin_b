@@ -66,10 +66,8 @@ Include conf.modules.d/*.conf
 # It is usually good practice to create a dedicated user and group for
 # running httpd, as with most system services.
 #
-# User catkeenalert
-# Group catkeenalert
-User git
-Group git
+User catkeenalert
+Group catkeenalert
 
 # 'Main' server configuration
 #
@@ -105,8 +103,7 @@ ServerAdmin root@localhost
 # <Directory> blocks below.
 #
 <Directory />
-    # AllowOverride None
-    AllowOverride All
+    AllowOverride none
     Require all denied
 </Directory>
 
@@ -122,16 +119,13 @@ ServerAdmin root@localhost
 # documents. By default, all requests are taken from this directory, but
 # symbolic links and aliases may be used to point to other locations.
 #
-# DocumentRoot "/var/www/html"
-DocumentRoot "/var/www"
+DocumentRoot "/var/www/html"
 
 #
 # Relax access to content within /var/www.
 #
 <Directory "/var/www">
-    Options Indexes FollowSymLinks
-    # AllowOverride None
-    AllowOverride All
+    AllowOverride None
     # Allow open access:
     Require all granted
 </Directory>
@@ -308,7 +302,6 @@ LogLevel warn
     # (You will also need to add "ExecCGI" to the "Options" directive.)
     #
     #AddHandler cgi-script .cgi
-    AddHandler cgi-script .cgi .pl .sh
 
     # For type maps (negotiated resources):
     #AddHandler type-map var
@@ -375,11 +368,3 @@ IncludeOptional sites-enabled/*.conf
 
 php_flag display_errors        on
 php_value error_reporting       2039
-
-
-# 以下段落尝试动态配置每个用户的网也空间
-# UserDir public_html
-# UserDir "/var/www/users/*/htdocs"
-# RewriteEngine On
-# RewriteCond "/home/$1/public_html" -d [NC]
-# RewriteRule "/([^/]+)/(.*)" "/home/$1/public_html/$2"
